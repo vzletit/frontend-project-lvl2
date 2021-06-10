@@ -17,5 +17,5 @@ test:
 	node --experimental-vm-modules "node_modules/.bin/jest"
 
 test-coverage:
-	npm test -- --coverage --coverageProvider=v8
+	node --experimental-vm-modules "node_modules/.bin/jest" --coverage --coverageProvider=v8
 
