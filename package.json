@@ -1,0 +1,34 @@
+{
+  "name": "@hexlet/code",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "type": "module",
+  "version": "0.0.1",
+  "description": "[![Actions Status](https://github.com/vzletit/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/vzletit/frontend-project-lvl2/actions)",
+  "main": "./lib/gendiff.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vzletit/frontend-project-lvl2.git"
+  },
+  "author": "Dmitry Agurkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vzletit/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/vzletit/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "lodash": "^4.17.21",
+    "prettier": "^2.3.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4"
+  }
+}
