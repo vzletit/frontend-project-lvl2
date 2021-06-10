@@ -10,5 +10,12 @@ publish:
 lint:
 	npx eslint .
 
-test:
+testw:
 	node --experimental-vm-modules "node_modules/.bin/jest" --watch
+
+test:
+	node --experimental-vm-modules "node_modules/.bin/jest"
+
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
+
