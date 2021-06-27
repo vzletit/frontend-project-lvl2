@@ -10,6 +10,9 @@ publish:
 lint:
 	npx eslint .
 
+lf:
+	npx eslint . --fix-dry-run
+
 testw:
 	node --experimental-vm-modules "node_modules/.bin/jest" --watch
 
@@ -21,3 +24,6 @@ test-coverage:
 
 run:
 	gendiff ../__fixtures__/file1.json ../__fixtures__/file2.json
+
+
+	
