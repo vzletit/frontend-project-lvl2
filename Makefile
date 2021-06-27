@@ -1,7 +1,7 @@
 install:
 	npm ci
 
-brain-games:
+gendiff:
 	node bin/gendiff.js
 
 publish:
@@ -19,3 +19,5 @@ test:
 test-coverage:
 	node --experimental-vm-modules "node_modules/.bin/jest" --coverage --coverageProvider=v8
 
+run:
+	gendiff ../__fixtures__/file1.json ../__fixtures__/file2.json
