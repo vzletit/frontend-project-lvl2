@@ -19,7 +19,7 @@ testw:
 test:
 	node --experimental-vm-modules "node_modules/.bin/jest"
 
-test-coverage:
+testc:
 	node --experimental-vm-modules "node_modules/.bin/jest" --coverage --coverageProvider=v8
 
 run:
