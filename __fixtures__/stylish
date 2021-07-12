@@ -14,13 +14,10 @@
               - wow: 
               + wow: so much
             }
-
             key: value
           + ops: vops
         }
-
     }
-
     group1: {
       - baz: bas
       + baz: bars
@@ -30,7 +27,6 @@
         }
       + nest: str
     }
-
   - group2: {
         abc: 12345
         deep: {

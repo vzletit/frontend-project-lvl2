@@ -3,7 +3,7 @@ import { dirname } from 'path';
 import * as path from 'path';
 
 import { fileURLToPath } from 'url';
-import gendiff from '../lib/formatters/index.js';
+import gendiff from '../lib/gendiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,49 +11,46 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const correctResult = readFile('gendiff.test.output');
-const correctResultNoFormatter = readFile('json');
+const correctResultStylish = readFile('stylish');
+const correctResultJSON = readFile('json');
 const correctResultPlain = readFile('plain');
 
-let file1;
-let file2;
-
 test('compare JSON', () => {
-  file1 = getFixturePath('file1.json');
-  file2 = getFixturePath('file2.json');
-  expect(gendiff(file1, file2)).toMatch(correctResult);
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
+  expect(gendiff(file1, file2)).toEqual(correctResultStylish);
 });
 
 test('compare YAML', () => {
-  file1 = getFixturePath('file1.yml');
-  file2 = getFixturePath('file2.yml');
+  const file1 = getFixturePath('file1.yml');
+  const file2 = getFixturePath('file2.yml');
 
-  expect(gendiff(file1, file2)).toMatch(correctResult);
+  expect(gendiff(file1, file2)).toEqual(correctResultStylish);
 });
 
-test('Test with JSON formatter (YML)', () => {
-  file1 = getFixturePath('file1.yml');
-  file2 = getFixturePath('file2.yml');
+test('with JSON formatter (YML)', () => {
+  const file1 = getFixturePath('file1.yml');
+  const file2 = getFixturePath('file2.yml');
 
-  expect(gendiff(file1, file2, 'json')).toMatch(correctResultNoFormatter);
+  expect(gendiff(file1, file2, 'json')).toMatch(correctResultJSON);
 });
 
-test('Test with JSON formatter (JSON)', () => {
-  file1 = getFixturePath('file1.json');
-  file2 = getFixturePath('file2.json');
+test('with JSON formatter (JSON)', () => {
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
 
-  expect(gendiff(file1, file2, 'json')).toMatch(correctResultNoFormatter);
+  expect(gendiff(file1, file2, 'json')).toMatch(correctResultJSON);
 });
 
 test('compare JSON files (PLAIN formatter)', () => {
-  file1 = getFixturePath('file1.json');
-  file2 = getFixturePath('file2.json');
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
   expect(gendiff(file1, file2, 'plain')).toMatch(correctResultPlain);
 });
 
 test('compare YAML files (PLAIN formatter)', () => {
-  file1 = getFixturePath('file1.yml');
-  file2 = getFixturePath('file2.yml');
+  const file1 = getFixturePath('file1.yml');
+  const file2 = getFixturePath('file2.yml');
 
   expect(gendiff(file1, file2, 'plain')).toMatch(correctResultPlain);
 });
